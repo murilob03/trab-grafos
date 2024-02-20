@@ -45,6 +45,7 @@ class Graph:
                 if visited[i] == False:
                     queue.append(i)
                     visited[i] = True
+        print()
 
     def dfs(self, s):
         visited = {}
@@ -59,6 +60,10 @@ class Graph:
                     dfs_recursive(i, visited_rec)
 
         dfs_recursive(s, visited)
+        print()
+
+    def dijkstra(self, start_vertex):
+        pass
 
     def display(self):
         for source, destinations in self.graph.items():
