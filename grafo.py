@@ -7,6 +7,8 @@ class Graph:
     def add_edge(self, source, destination, weight=None):
         if source not in self.graph:
             self.graph[source] = []
+        if destination not in self.graph:
+            self.graph[destination] = []
         if destination not in self.graph[source]:
             if self.is_weighted:
                 self.graph[source].append((destination, weight))
@@ -44,6 +46,19 @@ class Graph:
                     queue.append(i)
                     visited[i] = True
 
+    def dfs(self, s):
+        visited = {}
+        for vertex in self.graph.keys():
+            visited[vertex] = False
+
+        def dfs_recursive(i, visited_rec):
+            visited_rec[i] = True
+            print(i, end=" ")
+            for i in self.graph[i]:
+                if visited_rec[i] == False:
+                    dfs_recursive(i, visited_rec)
+
+        dfs_recursive(s, visited)
 
     def display(self):
         for source, destinations in self.graph.items():

@@ -1,7 +1,7 @@
 from grafo import Graph
 
 
-def input_graph():
+def main():
     is_directed = input("Is your graph directed? (y/n): ").lower() == "y"
     is_weighted = input("Is your graph weighted? (y/n): ").lower() == "y"
 
@@ -25,9 +25,14 @@ def input_graph():
             source, destination = map(str, edge.split(","))
             graph.add_edge(source, destination)
 
-    # graph.display()
-    start = input("Where to start the bfs procedure?")
-    graph.bfs(start)
+    graph.display()
+
+    # start = input("Where to start the bfs procedure?")
+    # graph.bfs(start)
+
+    start = input("Where to start the dfs procedure?")
+    graph.dfs(start)
 
 
-input_graph()
+if __name__ == "__main__":
+    main()

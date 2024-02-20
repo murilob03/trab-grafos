@@ -1,0 +1,12 @@
+y
+n
+u,v
+v,w
+w,x
+x,a
+x,b
+b,c
+a,d
+d,f
+done
+u
