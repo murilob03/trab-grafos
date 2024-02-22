@@ -4,7 +4,7 @@ class Graph:
         self.is_weighted = is_weighted
         self.graph = {}
 
-    def add_edge(self, source, destination, weight=None):
+    def add_edge(self, source: int, destination: int, weight: int = 0):
         if source not in self.graph:
             self.graph[source] = []
         if destination not in self.graph:

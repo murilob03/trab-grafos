@@ -29,7 +29,7 @@ def relax(u: Vertice, v: Vertice, G: Grafo):
     #Calcula distância e associa pai
     if(v.d > u.d + G.matriz_adj[u.idx][v.idx]):
         v.d = u.d + G.matriz_adj[u.idx][v.idx]
-        v.pi = u
+        v.pi = u # type: ignore
 
 
 def extract_min(Q) -> Vertice:
@@ -40,7 +40,7 @@ def extract_min(Q) -> Vertice:
             vertice_min = v
             distancia_min = v.d
     Q.remove(vertice_min)
-    return vertice_min
+    return vertice_min # type: ignore
 
 
 def menor_distancia(G: Grafo, dest:int):
@@ -66,8 +66,8 @@ def djikstra(G: Grafo, source:int, dest:int):
         vertice = extract_min(Q)
         S.append(vertice)
         for (idx, v) in enumerate(G.matriz_adj[vertice.idx]):
-        if v != 0:
-            relax(vertice, G.vertices[idx], G)
+            if v != 0:
+                relax(vertice, G.vertices[idx], G)
 
     dist = menor_distancia(G, dest)
     caminho = menor_caminho(G, source, dest)

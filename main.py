@@ -1,4 +1,5 @@
 from grafo import Graph
+from djikstra import Grafo, djikstra
 
 
 def input_graph() -> Graph:
@@ -15,7 +16,7 @@ def input_graph() -> Graph:
             if edge.lower() == "done":
                 break
             source, destination, weight = map(str, edge.split(","))
-            graph.add_edge(source, destination, weight)
+            graph.add_edge(int(source), int(destination), int(weight))
         else:
             edge = input(
                 "Input your graph edge (source, destination) or type 'done' to finish: "
@@ -23,7 +24,7 @@ def input_graph() -> Graph:
             if edge.lower() == "done":
                 break
             source, destination = map(str, edge.split(","))
-            graph.add_edge(source, destination)
+            graph.add_edge(int(source), int(destination))
         
     return graph
 
@@ -38,7 +39,7 @@ def main():
             graph.display()
             continue
 
-        start_vertex = input("Enter the start vertex: ")
+        start_vertex = int(input("Enter the start vertex: "))
 
         if operation == '2':
             graph.bfs(start_vertex)
@@ -48,7 +49,14 @@ def main():
             if not graph.is_weighted:
                 print("Dijkstra's algorithm requires a weighted graph!")
                 continue
-            graph.dijkstra(start_vertex)
+            
+            dijkstra_graph = Grafo(len(graph.graph) + 1)
+            for source in graph.graph:
+                for destination in graph.graph[source]:
+                    dijkstra_graph.add_aresta(source, destination[0], destination[1])
+
+            end_vertex = int(input("Enter the end vertex: "))
+            djikstra(dijkstra_graph, start_vertex, end_vertex)
         else:
             print("Invalid operation. Please choose BFS, DFS, Dijkstra, or Exit.")
 
