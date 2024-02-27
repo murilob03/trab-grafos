@@ -1,3 +1,5 @@
+# Integrantes: Murilo Boccardo (RA124160), Reidner Adnan Maniezo de Melo (RA110582)
+
 class Graph:
     def __init__(self, is_directed, is_weighted):
         self.is_directed = is_directed

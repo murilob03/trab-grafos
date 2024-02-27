@@ -1,3 +1,5 @@
+# Integrantes: Murilo Boccardo (RA124160), Reidner Adnan Maniezo de Melo (RA110582)
+
 from grafo import Graph
 
 
