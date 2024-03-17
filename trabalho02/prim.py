@@ -19,8 +19,7 @@ class Grafo:
 
     def prim_result(self):
         for v in self.vertices:
-            if v.pi:
-                print(f'vertice: {v.idx} | pai:{v.pi.idx if v.pi else None}')
+            print(f'vertice: {v.idx} - pai:{v.pi.idx if v.pi else None}')
 
 def extract_min(Q) -> Vertice:
     vertice_min = None
