@@ -1,3 +1,5 @@
+# Integrantes: Murilo Boccardo (RA124160), Reidner Adnan Maniezo de Melo (RA110582)
+
 class Grafo:
     def __init__(self, n_vertices: int):
         self.n_vertices: int = n_vertices

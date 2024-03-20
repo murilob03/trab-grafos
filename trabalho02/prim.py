@@ -1,3 +1,5 @@
+# Integrantes: Murilo Boccardo (RA124160), Reidner Adnan Maniezo de Melo (RA110582)
+
 class Vertice:
     def __init__(self, idx: int):
         self.idx = idx
